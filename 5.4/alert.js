@@ -14,8 +14,50 @@
 Джаз, Классика, Рок-н-ролл
 Классика, Рок-н-ролл
 Рэп, Регги, Классика, Рок-н-ролл
-*/
 
 let styles = ["Джаз", "Блюз"];
 styles.push("Рок-н-ролл");
 console.log(styles);
+let index = styles.length % 2;
+styles[index] = "Классика";
+console.log(styles);
+let firstElement = styles.shift();
+console.log(firstElement);
+console.log(styles);
+styles.unshift("Рэп", "Регги");
+console.log(styles);
+*/
+
+/*
+Напишите функцию sumInput(), которая:
+
+Просит пользователя ввести значения, используя prompt и сохраняет их в массив.
+Заканчивает запрашивать значения, когда пользователь введёт не числовое значение, пустую строку или нажмёт «Отмена».
+Подсчитывает и возвращает сумму элементов массива.
+P.S. Ноль 0 – считается числом, не останавливайте ввод значений при вводе «0».
+*/
+
+function sumInput() {
+    let userInput = 0;
+    let array = [];
+    let sum = 0;
+    while (true) {
+        userInput = +prompt("Вводите числа ", 0);
+        if (userInput == "" || userInput == null || isFinite(userInput) == false) {
+            break;
+        }
+        array.push(userInput);
+         
+    }
+    for (const iterator of array) {
+        console.log(iterator);
+        if (isFinite(iterator)) {
+            sum = sum + iterator;
+        }
+        
+    }
+    return sum;
+}
+
+let a = sumInput();
+alert(a);
